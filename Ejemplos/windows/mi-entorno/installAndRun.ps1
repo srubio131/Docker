@@ -1,6 +1,5 @@
-$IMAGE = "myphpapp-win"
+$IMAGE = "mientorno-win"
 $VERSION = ":latest"
-$PUERTO = "8000:80"
 
 $existeImagen = docker images | Where-Object { $_ -like "*$($IMAGE)*" }
 # Construir imagen "appPHP" si no existe ya..
@@ -11,7 +10,7 @@ if ([string]::IsNullOrEmpty($existeImagen)) {
 # Lanzar contenedor con esta imagen
 $existeContenedor = docker container ls --filter "status=running" | Where-Object { $_ -like "*$($IMAGE)*" }
 if ([string]::IsNullOrEmpty($existeContenedor)) {
-  docker run -d -p $PUERTO --name $IMAGE --rm $IMAGE$VERSION  
+  docker run -it --name $IMAGE --rm $IMAGE$VERSION
 } else {
   docker start $IMAGE
 }

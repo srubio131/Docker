@@ -1,0 +1,18 @@
+version: "3.3"
+
+services :
+
+  churrera:
+    build: ./generadorjasmine
+    image: churrera:1.4.2
+    ports:
+      - "8234:80"
+
+  telcopres:
+    build: ./telco
+    image: telcopres:1.0
+    ports:
+      - "27001:7001"
+    volumes:
+      - C:/SVN/Telco/Gest:C:/TELCO/SVN
+     
