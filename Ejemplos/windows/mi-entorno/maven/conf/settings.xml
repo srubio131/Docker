@@ -132,11 +132,6 @@ under the License.
     </server>
     -->
 
-    <!--<server>
-      <id>nexus</id>
-	  <username>T682558</username>
-	  <password>02anmgon</password>
-    </server>-->
 	<server>
       <id>nexus</id>
 	  <username>miUsername</username>

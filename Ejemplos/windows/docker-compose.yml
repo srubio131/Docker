@@ -1,18 +1,19 @@
-version: "3.3"
+version: '3'
 
 services :
 
-  churrera:
-    build: ./generadorjasmine
-    image: churrera:1.4.2
+  miwamp:
+    build: ./wamp-php-app
+    image: myphpapp-win:latest
     ports:
-      - "8234:80"
+      - "8000:80"
 
-  telcopres:
-    build: ./telco
-    image: telcopres:1.0
-    ports:
-      - "27001:7001"
+  mientorno:
+    depends_on:
+      - miwamp
+    build: ./mi-entorno
+    image: mientorno-win:latest
     volumes:
-      - C:/SVN/Telco/Gest:C:/TELCO/SVN
+      - C:/miEntorno/Git:C:/miEntorno/Git
+      - C:/miEntorno/apache-maven-repository:C:/miEntorno/apache-maven-repository
      
