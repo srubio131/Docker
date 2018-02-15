@@ -1,0 +1,18 @@
+version: '3'
+
+services :
+
+  miapache:
+    build: ./apache-php-app
+    image: myphpapp-linux:latest
+    ports:
+      - "8000:80"
+
+  mientorno:
+    depends_on:
+      - miapache
+    build: ./mi-entorno
+    image: mientorno-linux:latest
+    volumes:
+      - C:/miEntorno/Git:/home/miEntorno/Git
+      - C:/miEntorno/apache-maven-repository:/home/miEntorno/apache-maven-repository
