@@ -1,4 +1,4 @@
-$IMAGE = "myphpapp-linux"
+$IMAGE = "myphpapp-win"
 $VERSION = ":latest"
 $PUERTO = "8000:80"
 
